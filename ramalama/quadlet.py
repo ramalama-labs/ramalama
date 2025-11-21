@@ -15,7 +15,7 @@ class Quadlet:
         mmproj_path: Optional[Tuple[str, str]],
         args,
         exec_args,
-        artifact: bool
+        artifact: bool = False,
     ):
         self.src_model_path, self.dest_model_path = model_paths
         self.src_chat_template_path, self.dest_chat_template_path = (

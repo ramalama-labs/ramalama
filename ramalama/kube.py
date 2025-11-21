@@ -1,7 +1,7 @@
 import os
 from typing import Optional, Tuple
 
-from ramalama.common import MNT_DIR, RAG_DIR, get_accel_env_vars
+from ramalama.common import MNT_DIR, RAG_DIR, genname, get_accel_env_vars
 from ramalama.file import PlainFile
 from ramalama.version import version
 
@@ -15,7 +15,7 @@ class Kube:
         mmproj_paths: Optional[Tuple[str, str]],
         args,
         exec_args,
-        artifact,
+        artifact: bool = False,
     ):
         self.src_model_path, self.dest_model_path = model_paths
         self.src_chat_template_path, self.dest_chat_template_path = (
@@ -28,7 +28,7 @@ class Kube:
         if getattr(args, "name", None):
             self.name = args.name
         else:
-            self.name = "ramalama"
+            self.name = genname()
 
         self.args = args
         self.exec_args = exec_args
