@@ -145,7 +145,7 @@ endif
 
 .PHONY: type-check
 type-check:
-	ty check $(addprefix --exclude=,$(EXCLUDE_DIRS)) --exclude test
+	ty check $(addprefix --exclude=,$(EXCLUDE_DIRS)) --exclude test $(PROJECT_DIR)
 
 .PHONY: validate
 validate: codespell lint man-check type-check
